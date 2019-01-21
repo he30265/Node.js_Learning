@@ -33,7 +33,7 @@ module.exports 是真正的接口，exports 是一个辅助工具。
 
 - exports 使用方法：
 
-var str = "learning CommonJS";
+let str = "learning CommonJS";
 exports.str = str; // {str: "learning CommonJS"}
 
 - module.exports 使用方法：

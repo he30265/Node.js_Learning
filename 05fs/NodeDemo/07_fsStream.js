@@ -2,28 +2,28 @@
 
 // #### 1、fs 流及其读取
 // 首先创建一个 index.js 文件，并添加测试文本。
-let fs = require("fs");
-// 流的方式读取文件
-let fileReadStream = fs.createReadStream("index.js");
-// 读取次数
-let count = 0;
-// 保存数据
-let str = "";
-// 开始读取
-fileReadStream.on("data", (chunk) => {
-    console.log(`${++count} 接收到：${chunk.length}`);
-    str += chunk;
-});
-// 读取完成
-fileReadStream.on("end", () => {
-    console.log("结束");
-    console.log(count);
-    console.log(str);
-});
-// 读取失败
-fileReadStream.on("err", (err) => {
-    console.log(err);
-});
+// const fs = require("fs");
+// // 流的方式读取文件
+// const fileReadStream = fs.createReadStream("index.js");
+// // 读取次数
+// let count = 0;
+// // 保存数据
+// let str = "";
+// // 开始读取
+// fileReadStream.on("data", (chunk) => {
+//     console.log(`${++count} 接收到：${chunk.length}`);
+//     str += chunk;
+// });
+// // 读取完成
+// fileReadStream.on("end", () => {
+//     console.log("结束");
+//     console.log(count);
+//     console.log(str);
+// });
+// // 读取失败
+// fileReadStream.on("err", (err) => {
+//     console.log(err);
+// });
 
 /*
 
@@ -43,7 +43,7 @@ fs 流及其读取
 
 // #### 2、流的写入
 
-// let fs = require("fs");
+// const fs = require("fs");
 // let data = "存入数据...";
 // // 创建一个可以写入的流，写入到 index.js
 // let fileWriteStream = fs.createWriteStream("index.js");

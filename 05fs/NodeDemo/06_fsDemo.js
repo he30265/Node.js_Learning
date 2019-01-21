@@ -1,5 +1,5 @@
 // #### 1、判断是否有 upload 目录
-// let fs = require("fs");
+// const fs = require("fs");
 // fs.stat("upload", (err, stats) => {
 //     if (err) {
 //         // 如果没有，创建 upload 目录
@@ -31,7 +31,7 @@ console.log(stats.isDirectory()); // true
 
 
 // #### 2、读取目录全部文件
-let fs = require("fs");
+const fs = require("fs");
 fs.readdir("node_modules/", (err, files) => {
     if (err) {
         console.log(err);

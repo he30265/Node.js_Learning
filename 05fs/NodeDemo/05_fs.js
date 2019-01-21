@@ -1,5 +1,5 @@
 // #### 1、fs.stat：检测是文件还是目录
-// let fs = require("fs");
+// const fs = require("fs");
 // fs.stat('05_fs.js', (error, stats) => {
 //     if (error) {
 //         console.log(error);
@@ -32,7 +32,6 @@ console.log(stats)：
   mtime: 2019-01-15T09:18:06.561Z,
   ctime: 2019-01-15T09:18:06.561Z,
   birthtime: 2018-12-25T09:14:40.866Z }
-
 console.log(`文件：${stats.isFile()}`); // 文件：true
 console.log(`目录：${stats.isDirectory()}`); // 目录：false
 
@@ -49,7 +48,7 @@ console.log(`目录：${stats.isDirectory()}`); // 目录：false
 
 
 // #### 2、fs.mkdir：创建目录
-// let fs = require("fs");
+// const fs = require("fs");
 // fs.mkdir('images', (err) => {
 //     if (err) {
 //         console.log(err);
@@ -62,8 +61,8 @@ console.log(`目录：${stats.isDirectory()}`); // 目录：false
 /*
 接收参数：
 
-- path：将创建的目录路径。
-- mode：目录权限（读写权限），默认 0777。
+- path：将创建的目录。
+- mode：目录权限（读写权限）。
 - callback：回调，传递异常参数 err。
 
 执行 node 05_fs.js。
@@ -75,7 +74,7 @@ console.log(`目录：${stats.isDirectory()}`); // 目录：false
 
 
 // #### 3、fs.rmdir：删除目录
-// let fs = require("fs");
+// const fs = require("fs");
 // fs.rmdir('images', (err) => {
 //     if (err) {
 //         console.log(err);
@@ -89,8 +88,8 @@ console.log(`目录：${stats.isDirectory()}`); // 目录：false
 
 接收参数：
 
-- path：将创建的目录路径。
-- mode：目录权限（读写权限），默认 0777。
+- path：将删除的目录。
+- mode：目录权限（读写权限）。
 - callback：回调，传递异常参数 err。
 
 执行 node 05_fs.js。
@@ -101,7 +100,7 @@ console.log(`目录：${stats.isDirectory()}`); // 目录：false
 
 
 // #### 4、fs.writeFile 创建写入文件
-// let fs = require("fs");
+// const fs = require("fs");
 // fs.writeFile("index.js", "hello NodeJS！", (err) => {
 //     if (err) {
 //         console.log(err);
@@ -133,7 +132,7 @@ console.log(`目录：${stats.isDirectory()}`); // 目录：false
  */
 
 // #### 5、fs.unlink 删除文件
-// let fs = require("fs");
+// const fs = require("fs");
 // fs.unlink("index.js", (err) => {
 //     if (err) {
 //         console.log(err);
@@ -153,7 +152,7 @@ console.log(`目录：${stats.isDirectory()}`); // 目录：false
 
 
 // #### 6、fs.appendFile 追加文件
-// let fs = require("fs");
+// const fs = require("fs");
 // fs.appendFile("index.js", "追加的内容", (err) => {
 //     if (err) {
 //         console.log(err);
@@ -173,7 +172,7 @@ console.log(`目录：${stats.isDirectory()}`); // 目录：false
 
 
 // #### 7、fs.readFile 读取文件
-// let fs = require("fs");
+// const fs = require("fs");
 // fs.readFile("index.js", (err, data) => {
 //     if (err) {
 //         console.log(err);
@@ -195,7 +194,7 @@ console.log(data) 打印结果：
 
 
 // #### 8、fs.readdir 读取目录
-// let fs = require("fs");
+// const fs = require("fs");
 // fs.readdir("node_modules", (err, data) => {
 //     if (err) {
 //         console.log(err);
@@ -217,7 +216,7 @@ console.log(data) 打印结果：
 
 
 // #### 9、fs.rename 重命名
-// let fs = require("fs");
+// const fs = require("fs");
 // fs.rename("index.js", "new_index.js", (err) => {
 //     if (err) {
 //         console.log(err);
@@ -237,15 +236,15 @@ console.log(data) 打印结果：
 
 
 // #### 10、补充：fs.rename 还可以剪切
-let fs = require("fs");
-fs.rename("new_index.js", "node_modules/new_index.js", (err) => {
-    if (err) {
-        console.log(err);
-        return false;
-    } else {
-        console.log("剪切成功！");
-    };
-});
+// const fs = require("fs");
+// fs.rename("new_index.js", "node_modules/new_index.js", (err) => {
+//     if (err) {
+//         console.log(err);
+//         return false;
+//     } else {
+//         console.log("剪切成功！");
+//     };
+// });
 
 /*
 

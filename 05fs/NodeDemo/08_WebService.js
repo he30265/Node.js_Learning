@@ -2,7 +2,7 @@
 
 ### 八、创建 web 服务器
 
-在这里，我们利用 http 模块、url 模块、path 模块、fs 模块创建一个 Web 服务器。
+> 到这里，我们利用 http 模块、url 模块、path 模块、fs 模块创建一个 Web 服务器。
 
 **什么是 Web 服务器？**
 
@@ -17,140 +17,131 @@ Web 服务器一般指网站服务器，是指驻留于因特网上某种类型�
 ![](https://upload-images.jianshu.io/upload_images/9373308-7c71803a11647092.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
  */
-
-
 // 08_WebService.js
-// let http = require("http");
-// let fs = require("fs");
-// http.createServer((request, response) => {
+// const http = require('http');
+// const fs = require('fs');
+// const hostname = '127.0.0.1';
+// const port = 3000;
+// const server = http.createServer((request, response) => {
 //     // 获取响应路径
 //     let pathName = request.url;
 
 //     // 默认加载路径
-//     if (pathName == "/") {
-//         // 默认加载的首页
-//         pathName = "index.html";
+//     if (pathName == '/') {
+//         // 默认加载首页
+//         pathName = 'index.html';
 //     };
 
 //     // 过滤 /favicon.ico 的请求
-//     if (pathName != "/favicon.ico") {
+//     if (pathName != '/favicon.ico') {
 //         // 读取 08_WebService 目录下的 index.html
-//         fs.readFile("08_WebService/" + pathName, (err, data) => {
+//         fs.readFile('08_WebService/' + pathName, (err, data) => {
 //             if (err) {
 //                 // 如果不存在这个文件
-//                 console.log("404 Not Fount!");
-//                 fs.readFile("08_WebService/404.html", (errorNotFound, dataNotFound) => {
+//                 console.log('404 Not Fount!');
+//                 fs.readFile('08_WebService/404.html', (errorNotFound, dataNotFound) => {
 //                     if (errorNotFound) {
 //                         console.log(errorNotFound);
 //                     } else {
-//                         response.writeHead(200, {
-//                             "Content-Type": "text/html;charset=utf-8"
-//                         });
-//                         // 读取写入文件
-//                         response.write(dataNotFound);
-//                         // 结束响应
-//                         response.end();
+//                         response.statusCode = 200;
+//                         response.setHeader('Content-Type', 'text/html;charset=utf-8');
+//                         response.end(dataNotFound);
 //                     };
 //                 });
 //                 return;
 //             } else {
-//                 // 存在这个文件，返回该文件
-//                 response.writeHead(200, {
-//                     "Content-Type": "text/html;charset=utf-8"
-//                 });
-//                 // 读取写入文件
-//                 response.write(data);
-//                 // 结束响应
-//                 response.end();
+//                 // 如果存在这个文件，返回该文件
+//                 response.statusCode = 200;
+//                 response.setHeader('Content-Type', 'text/html;charset=utf-8');
+//                 response.end(data);
 //             };
 //         });
 //     };
+// });
 
-// }).listen(3000);
+// server.listen(port, hostname, () => {
+//     console.log(`服务器运行在 http://${hostname}:${port}`);
+// });
 
 /*
 
 执行 node 08_WebService.js，访问 localhost:3000。
 
-如果访问成功，此时就可以看到 index.html 页面了，但是在检查中我们发现引入的 css.css 文件并没有生效。
+如果访问成功，此时就可以看到 index.html 页面了，但是在检查中我们发现引入的 css.css 文件并没有生效，那是因为在 Content-Type 中没有设置 css 等文件的类型。
 
-![](https://upload-images.jianshu.io/upload_images/9373308-ea377f094f5a5127.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://upload-images.jianshu.io/upload_images/9373308-dbe78fb78660beff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://upload-images.jianshu.io/upload_images/9373308-e34a6581909210ae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 所以下一步就该动态加载 html、css、js 这些文件了。
 
 修改 08_WebService.js。
 
+08_WebService.js：
+
  */
 
-
-// 08_WebService.js
-// let http = require("http");
-// let fs = require("fs");
-// let url = require("url");
-// let path = require("path");
-// http.createServer((request, response) => {
+// const http = require('http');
+// const fs = require('fs');
+// const path = require('path');
+// const hostname = '127.0.0.1';
+// const port = 3000;
+// const server = http.createServer((request, response) => {
 //     // 获取响应路径
 //     let pathName = request.url;
 
 //     // 默认加载路径
-//     if (pathName == "/") {
-//         // 默认加载的首页
-//         pathName = "index.html";
+//     if (pathName == '/') {
+//         // 默认加载首页
+//         pathName = 'index.html';
 //     };
 
 //     // 获取文件的后缀名
 //     let extName = path.extname(pathName);
 
 //     // 过滤 /favicon.ico 的请求
-//     if (pathName != "/favicon.ico") {
+//     if (pathName != '/favicon.ico') {
 //         // 读取 08_WebService 目录下的 index.html
-//         fs.readFile("08_WebService/" + pathName, (err, data) => {
+//         fs.readFile('08_WebService/' + pathName, (err, data) => {
 //             if (err) {
 //                 // 如果不存在这个文件
-//                 console.log("404 Not Fount!");
-//                 fs.readFile("08_WebService/404.html", (errorNotFound, dataNotFound) => {
+//                 console.log('404 Not Fount!');
+//                 fs.readFile('08_WebService/404.html', (errorNotFound, dataNotFound) => {
 //                     if (errorNotFound) {
 //                         console.log(errorNotFound);
 //                     } else {
-//                         response.writeHead(200, {
-//                             "Content-Type": "text/html;charset=utf-8"
-//                         });
-//                         // 读取写入文件
-//                         response.write(dataNotFound);
-//                         // 结束响应
-//                         response.end();
+//                         response.statusCode = 200;
+//                         response.setHeader('Content-Type', 'text/html;charset=utf-8');
+//                         response.end(dataNotFound);
 //                     };
 //                 });
 //                 return;
 //             } else {
-//                 // 存在这个文件，返回该文件
+//                 // 如果存在这个文件，返回该文件
 //                 // 获取文件类型
 //                 let ext = getExt(extName);
-//                 response.writeHead(200, {
-//                     "Content-Type": ext + ";charset=utf-8"
-//                 });
-
-//                 // 读取写入文件
-//                 response.write(data);
-//                 // 结束响应
-//                 response.end();
+//                 response.statusCode = 200;
+//                 response.setHeader('Content-Type', ext + ';charset=utf-8');
+//                 response.end(data);
 //             };
 //         });
 //     };
+// });
 
-// }).listen(3000);
+// server.listen(port, hostname, () => {
+//     console.log(`服务器运行在 http://${hostname}:${port}`);
+// });
 
 // // 获取后缀名方法
 // getExt = (extName) => {
 //     switch (extName) {
-//         case ".html":
-//             return "text/html";
-//         case ".css":
-//             return "text/css";
-//         case ".js":
-//             return "text/js";
+//         case '.html':
+//             return 'text/html';
+//         case '.css':
+//             return 'text/css';
+//         case '.js':
+//             return 'text/js';
 //         default:
-//             return "text/html";
+//             return 'text/html';
 //     };
 // };
 
@@ -160,86 +151,82 @@ Web 服务器一般指网站服务器，是指驻留于因特网上某种类型�
 
 此时再去检查页面，就会发现 css.css 已经可以成功引用了。
 
-![](https://upload-images.jianshu.io/upload_images/9373308-8fc09970015396b7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://upload-images.jianshu.io/upload_images/9373308-e93fde8905ef0d23.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 但是这仅仅设置了三种文件类型，如果需要更多类型的文件呢？
 
 接下来我们再次修改一下 08_WebService.js，让它能够适应更多类型文件的请求。
 
-首先新建 08_ext.json 文件，然后在里边添加数据，因为数据比较多，你可以去[GitHub地址](https://github.com/he30265/NodeJS/blob/master/NodeJS_Learning/05fs/NodeDemo/08_ext.json)下载，在 json 中定义了各种文件类型。
+首先新建 08_ext.json 文件，然后在里边添加数据，因为数据比较多，你可以去[GitHub地址](https://github.com/he30265/Node.js_Learning/blob/master/05fs/NodeDemo/08_ext.json)下载，在 json 中定义了各种文件类型。
 
 ![](https://upload-images.jianshu.io/upload_images/9373308-84c71d655fed26f0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-接下来再次修改 08_WebService.js
+接下来再次修改 08_WebService.js。
 
+08_WebService.js：
 
  */
 
-
-// 08_WebService.js
-let http = require("http");
-let fs = require("fs");
-let url = require("url");
-let path = require("path");
-http.createServer((request, response) => {
+const http = require('http');
+const fs = require('fs');
+const path = require('path');
+const hostname = '127.0.0.1';
+const port = 3000;
+const server = http.createServer((request, response) => {
     // 获取响应路径
     let pathName = request.url;
 
     // 默认加载路径
-    if (pathName == "/") {
-        // 默认加载的首页
-        pathName = "index.html";
+    if (pathName == '/') {
+        // 默认加载首页
+        pathName = 'index.html';
     };
 
     // 获取文件的后缀名
     let extName = path.extname(pathName);
 
     // 过滤 /favicon.ico 的请求
-    if (pathName != "/favicon.ico") {
+    if (pathName != '/favicon.ico') {
         // 读取 08_WebService 目录下的 index.html
-        fs.readFile("08_WebService/" + pathName, (err, data) => {
+        fs.readFile('08_WebService/' + pathName, (err, data) => {
             if (err) {
                 // 如果不存在这个文件
-                console.log("404 Not Fount!");
-                fs.readFile("08_WebService/404.html", (errorNotFound, dataNotFound) => {
+                console.log('404 Not Fount!');
+                fs.readFile('08_WebService/404.html', (errorNotFound, dataNotFound) => {
                     if (errorNotFound) {
                         console.log(errorNotFound);
                     } else {
-                        response.writeHead(200, {
-                            "Content-Type": "text/html;charset=utf-8"
-                        });
-                        // 读取写入文件
-                        response.write(dataNotFound);
-                        // 结束响应
-                        response.end();
+                        response.statusCode = 200;
+                        response.setHeader('Content-Type', 'text/html;charset=utf-8');
+                        response.end(dataNotFound);
                     };
                 });
                 return;
             } else {
-                // 存在这个文件，返回该文件
+                // 如果存在这个文件，返回该文件
                 // 获取文件类型
                 let ext = getExt(extName);
-                response.writeHead(200, {
-                    "Content-Type": ext + ";charset=utf-8"
-                });
-
-                // 读取写入文件
-                response.write(data);
-                // 结束响应
-                response.end();
+                response.statusCode = 200;
+                response.setHeader('Content-Type', ext + ';charset=utf-8');
+                response.end(data);
             };
         });
     };
+});
 
-}).listen(3000);
+server.listen(port, hostname, () => {
+    console.log(`服务器运行在 http://${hostname}:${port}`);
+});
 
-// 获取后缀名方法：
+// 获取后缀名方法
 getExt = (extName) => {
-    // 读取 08_ext.json 文件
+    // 读取 08_ext.json
     // readFile 是异步操作，所以需要用 readFileSync
-    let data = fs.readFileSync("08_ext.json");
+    let data = fs.readFileSync('08_ext.json');
+    // 因为文件是通过服务器获取的，所以先将数据转换为 javascript 对象（字符串），然后再转换为 JSON 对象。
     let ext = JSON.parse(data.toString());
     return ext[extName];
 };
 
 // 至此，我们已经创建了一个简单的 web 服务器。
+//
