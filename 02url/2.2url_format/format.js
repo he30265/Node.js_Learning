@@ -1,4 +1,4 @@
-// url 模块下 format 模块
+// url 模块下 format 函数
 // format: 逆向 parse
 
 const url = require('url');
@@ -27,7 +27,7 @@ const server = http.createServer((request, response) => {
     };
     response.statusCode = 200;
     response.setHeader('Content-Type', 'text/plain;charset=utf-8');
-    response.end('url 模块下 format 模块。');
+    response.end('url 模块下 format 函数。');
 });
 server.listen(port, hostname, () => {
     console.log(`服务器运行在 http://${hostname}:${port}`);

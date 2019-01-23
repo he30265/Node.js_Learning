@@ -1,4 +1,4 @@
-// url 模块下 resolve 模块
+// url 模块下 resolve 函数
 // resolve: 追加或替换地址
 
 const url = require('url');
@@ -11,7 +11,7 @@ const server = http.createServer((request, response) => {
     };
     response.statusCode = 200;
     response.setHeader('Content-Type', 'text/plain;charset=utf-8');
-    response.end('url 模块下 resolve 模块。');
+    response.end('url 模块下 resolve 函数。');
 });
 server.listen(port, hostname, () => {
     console.log(`服务器运行在 http://${hostname}:${port}`);

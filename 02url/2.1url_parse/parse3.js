@@ -1,4 +1,4 @@
-// url 模块下 parse 模块（parse 扩展）
+// url 模块下 parse 函数（parse 扩展）
 // parse: 获取地址信息
 
 const url = require('url');
@@ -19,7 +19,7 @@ const server = http.createServer((request, response) => {
     };
     response.statusCode = 200;
     response.setHeader('Content-Type', 'text/plain;charset=utf-8');
-    response.end('url 模块下 parse 模块（parse 扩展）。');
+    response.end('url 模块下 parse 函数（parse 扩展）。');
 });
 server.listen(port, hostname, () => {
     console.log(`服务器运行在 http://${hostname}:${port}`);
