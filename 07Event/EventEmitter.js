@@ -1,6 +1,6 @@
 /*
 
-### 十一、EventEmitter（事件触发器 ）
+### 三、事件触发器 EventEmitter
 
 Node.js 所有的异步 I/O 操作在完成时都会发送一个事件到事件队列。
 
@@ -15,10 +15,13 @@ EventEmitter 的核心就是事件触发与事件监听器功能的封装。
 
  */
 
-// 11_EventEmitter.js
+// EventEmitter.js
 // const events = require('events');
 // let eventEmitter = new events.EventEmitter();
+// console.log(events);
+// console.log(eventEmitter);
 /*
+打印结果：
 console.log(events);
 { [Function: EventEmitter]
   EventEmitter: [Circular],
@@ -42,7 +45,7 @@ EventEmitter 对象如果在实例化时发生错误，会触发 error 事件，
 
  */
 
-// 11_EventEmitter.js
+// EventEmitter.js
 // const events = require('events');
 // // event 注册监听器
 // let event = new events.EventEmitter();
@@ -73,7 +76,7 @@ EventEmitter 的每个事件由一个事件名和若干个参数组成，事件�
 
 */
 
-// 11_EventEmitter.js
+// EventEmitter.js
 // const events = require('events');
 // let emitter = new events.EventEmitter();
 // // 注册监听器1
@@ -204,7 +207,7 @@ events.emitter.listenerCount(eventName) //推荐
 
  */
 
-// 11_EventEmitter.js
+// EventEmitter.js
 // const events = require('events');
 // let eventEmitter = new events.EventEmitter();
 
@@ -263,13 +266,13 @@ EventEmitter 定义了一个特殊的事件 error，它包含了错误的语义�
 
 当 error 被触发时，EventEmitter 规定如果没有响 应的监听器，Node.js 会把它当作异常，退出程序并输出错误信息。
 
-我们一般要为会触发 error 事件的对象设置监听器，避免遇到错误后整个程序崩溃。例如：
+我们一般要为会触发 error 事件的对象设置监听器，避免遇到错误后整个程序崩溃，例如：
 
  */
 
-const events = require('evets');
-let emitter = new events.eventEmitter();
-emitter.emit('err');
+// const events = require('evets');
+// let emitter = new events.eventEmitter();
+// emitter.emit('err');
 
 /*
 

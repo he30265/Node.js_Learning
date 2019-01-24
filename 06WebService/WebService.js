@@ -2,9 +2,9 @@
 
 ### 创建 web 服务器
 
-> 到这里，我们就可以利用 http 模块，url 模块，path 模块，fs 模块创建一个 Web 服务器了。
+> 到这里，我们就可以利用 http 模块，url 模块，path 模块和fs 模块创建一个 Web 服务器了。
 
-**什么是 Web 服务器？**
+什么是 Web 服务器？
 
 Web 服务器一般指网站服务器，是指驻留于因特网上某种类型计算机的程序，可以向浏览器等 Web 客户端提供文档，也可以放置网站文件，让全世界浏览，可以放置数据文件，让全世界下载。
 
@@ -154,7 +154,7 @@ WebService.js：
 
 接下来我们再次修改一下 WebService.js，让它能够适应更多类型文件的请求。
 
-首先新建 08_ext.json 文件，然后在里边添加数据，因为数据比较多，你可以去[GitHub地址](https://github.com/he30265/Node.js_Learning/blob/master/05fs/NodeDemo/08_ext.json)下载，在 json 中定义了各种文件类型。
+首先新建 ext.json 文件，然后在里边添加数据，因为数据比较多，你可以去[GitHub地址](https://github.com/he30265/Node.js_Learning/blob/master/06WebService/ext.json)拷贝 json 数据，该 json 中定义了各种文件类型。
 
 ![](https://upload-images.jianshu.io/upload_images/9373308-84c71d655fed26f0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -217,5 +217,5 @@ getExt = (extName) => {
     return ext[extName];
 };
 
-// 至此，我们已经创建了一个简单的 web 服务器。
+// 至此，我们已经创建了一个简单的 web 服务器了。
 

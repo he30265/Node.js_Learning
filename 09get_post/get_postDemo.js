@@ -1,10 +1,10 @@
 /*
 
-#### 3、get 与 post 实例
+### 三、get 与 post 实例
 
  */
 
-// 13_get_postDemo.js
+// get_postDemo.js
 const http = require('http');
 // 虚拟 SQL 读取出来的数据
 let items = [];
@@ -61,9 +61,9 @@ server.listen(port, hostname, () => {
 
 以上是后端 Node.js 的部署，那么前端页面要怎么做呢？
 
-新建 13_get_postDemo.html 文件，通过 Vue 对页面进行了布局，通过 Axios 进行了接口的请求，从而完成了对数据的操作。
+新建 get_postDemo.html 文件，通过 Vue 对页面进行了布局，通过 Axios 进行了接口的请求，从而完成了对数据的操作。
 
-13_get_postDemo.html
+get_postDemo.html
 ```
 <!DOCTYPE html>
 <html lang="en">
@@ -126,13 +126,14 @@ var vm = new Vue({
 </html>
 ```
 
-浏览器打开 13_get_postDemo.html，添加几条数据。
+浏览器打开 get_postDemo.html，添加几条数据。
 
-![](https://upload-images.jianshu.io/upload_images/9373308-2906933384df9d53.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://upload-images.jianshu.io/upload_images/9373308-8a8af8bc973f522d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 刷新 127.0.0.1:3000，可以看到数据已经提交上去。
 
-![](https://upload-images.jianshu.io/upload_images/9373308-c5fd9b7f7c5ad5d5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://upload-images.jianshu.io/upload_images/9373308-8130c55c78feb982.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 
 
  */

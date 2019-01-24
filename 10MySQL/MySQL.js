@@ -1,11 +1,9 @@
 /*
 
-### 十四、Node.js 连接 MySQL
-
-新建一个目录 Node.js_MySQL，目录内将会新增 Node.js 连接 MySQL 的方法，增删改查功能的实现。
+> Node.js 连接 MySQL
 
 
-#### 1、设计表
+#### 一、设计表
 
 首先通过可视化工具进行表的设计，然后添加几条测试数据：
 
@@ -14,7 +12,7 @@
 ![i](https://upload-images.jianshu.io/upload_images/9373308-7cb5dbe2e4caa659.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
-#### 2、安装 Node.js 链接 MySQL 的包
+### 二、安装 Node.js 连接 MySQL 的包
 
 ```
 npm i mysql -d
@@ -24,10 +22,10 @@ npm i mysql -d
  */
 
 
-// 14_MySQL.js
-// 引入 mysql
+// MySQL.js
+// 引入 mysql 包
 const mysql = require('mysql');
-// mysql 链接信息
+// mysql 连接信息
 let connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -49,9 +47,9 @@ connection.end();
 
 /*
 
-执行 node 14_MySQL.js，连接成功界面如下：
+执行 node MySQL.js，连接成功界面如下：
 
-![](https://upload-images.jianshu.io/upload_images/9373308-d6757b9de7ec4559.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://upload-images.jianshu.io/upload_images/9373308-aa32d3ae237bbfba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
 接下来就该实现增删改查的功能了。
@@ -61,11 +59,8 @@ connection.end();
 
 /*
 
-#### 3、增删改查。
+### 三、增删改查。
 
-在 Node.js_MySQL 目录下新建增删改查文件。
-
-![](https://upload-images.jianshu.io/upload_images/9373308-73232b150e0d13c5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
  */
 

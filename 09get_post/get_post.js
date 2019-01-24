@@ -1,19 +1,19 @@
 /*
 
-### 十三、GET 与 POST 请求
+09 GET 与 POST 请求
 
 在很多场景中，我们的服务器都需要跟用户的浏览器打交道，如表单提交，表单提交到服务器一般都使用 GET/POST 请求。
 
 本篇文章将为大家介绍 Node.js GET/POST 请求。
 
 
-#### 1、获取 GET 请求内容
+### 一、获取 GET 请求内容
 
 GET 请求被直接嵌入到 URL 路径中，包括“？”后面的部分，因此可以手动解析后面的内容作为 GET 请求参数，url 模块中的 parse 函数提供了这个功能。
 
  */
 
-// 13_get_post.js
+// get_post.js
 // const http = require('http');
 // const url = require('url');
 // const util = require('util');
@@ -50,7 +50,7 @@ GET 请求被直接嵌入到 URL 路径中，包括“？”后面的部分，�
 
  */
 
-// 13_get_post.js
+// get_post.js
 // const http = require('http');
 // const url = require('url');
 // const util = require('util');
@@ -62,9 +62,9 @@ GET 请求被直接嵌入到 URL 路径中，包括“？”后面的部分，�
 //     let result = url.parse(request.url, true);
 //     response.write(util.inspect(url.parse(request.url, true)));
 //     response.write('\n');
-//     response.write('网站名称' + result.query.name);
+//     response.write('网站名称：' + result.query.name);
 //     response.write('\n');
-//     response.write('网站地址' + result.query.url);
+//     response.write('网站地址：' + result.query.url);
 //     response.end();
 // });
 // server.listen(port, hostname, () => {
@@ -76,7 +76,7 @@ GET 请求被直接嵌入到 URL 路径中，包括“？”后面的部分，�
 
 在浏览器访问 127.0.0.1:3000/?name=LiuZhenghe&&url=liuzhenghe.com/，可以看到下边结果：
 
-![](https://upload-images.jianshu.io/upload_images/9373308-9888297d27fd4928.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://upload-images.jianshu.io/upload_images/9373308-2359c4712eaf6f51.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
  */
@@ -84,7 +84,7 @@ GET 请求被直接嵌入到 URL 路径中，包括“？”后面的部分，�
 
 /*
 
-#### 2、获取 POST 请求内容
+### 二、获取 POST 请求内容
 
 POST 请求的内容全部的都在请求体中，http.ServerRequest 并没有一个属性内容为请求体，原因是等待请求体传输可能是一件耗时的工作。
 
@@ -92,7 +92,7 @@ POST 请求的内容全部的都在请求体中，http.ServerRequest 并没有�
 
  */
 
-// 13_get_post.js
+// get_post.js
 // const http = require('http');
 // const util = require('util');
 // const querystring = require('querystring');
@@ -123,7 +123,7 @@ POST 请求的内容全部的都在请求体中，http.ServerRequest 并没有�
 
  */
 
-// 13_get_post.js
+// get_post.js
 const http = require('http');
 const util = require('util');
 const querystring = require('querystring');

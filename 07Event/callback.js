@@ -1,6 +1,6 @@
 /*
 
-### 九、回调函数
+### 一、回调函数 callback
 
 #### 1、回调函数
 
@@ -13,7 +13,7 @@ Node.js 使用了大量回调函数， 它的所有 API 都支持回调函数。
 回调函数一般作为函数的最后一个参数出现，例：
 ```
 function fun1(name, age, callback) {};
-function fun2(value, callback1, claaback2) {};
+function fun2(value, callback1, callback2) {};
 ```
 
 
@@ -23,13 +23,13 @@ function fun2(value, callback1, claaback2) {};
 
 input.js
 ```
-回调函数
+文件读取
 ```
 
 
  */
 
-// 09_callback.js
+// callback.js
 // const fs = require('fs');
 // // readFileSync：同步读取文件
 // let data = fs.readFileSync('input.js');
@@ -40,9 +40,8 @@ input.js
 
 执行结果：
 ```
-Node.js 学习
+文件读取
 程序执行结束！
-
 ```
 
 
@@ -50,24 +49,24 @@ Node.js 学习
 
  */
 
-// 09_callback.js
-// const fs = require('fs');
-// fs.readFile('input.js', (err, data) => {
-//     if (err) {
-//         console.log(err);
-//         return false;
-//     } else {
-//         console.log(data.toString());
-//     };
-// });
-// console.log('程序执行结束！');
+// callback.js
+const fs = require('fs');
+fs.readFile('input.js', (err, data) => {
+    if (err) {
+        console.log(err);
+        return false;
+    } else {
+        console.log(data.toString());
+    };
+});
+console.log('程序执行结束！');
 
 /*
 
 执行结果：
 ```
 程序执行结束！
-Node.js 学习
+文件读取
 ```
 
 通过上面的两段代码，我们了解了阻塞与非阻塞的不同。

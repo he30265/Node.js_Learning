@@ -1,12 +1,12 @@
 /*
 
-### 十二、util 模块
+util 模块
 
 
-util（工具）是一个 Node.js 核心模块，提供常用函数的集合，用于弥补核心 JavaScript 的功能 过于精简的不足。
+> util（工具）是一个 Node.js 核心模块，提供常用函数的集合，用于弥补核心 JavaScript 的功能 过于精简的不足。
 
 
-#### 1、util.inherits
+### 一、util.inherits
 
 util.inherits(constructor, superConstructor)是一个实现对象间原型继承的函数。
 
@@ -19,7 +19,7 @@ JavaScript 的面向对象特性是基于原型的，与常见的基于类的不
 
  */
 
-// 12_util.js
+// util.js
 // function Base() {
 //     this.name = 'Base';
 //     this.age = 24;
@@ -57,7 +57,7 @@ JavaScript 的面向对象特性是基于原型的，与常见的基于类的不
 
  */
 
-// 12_util.js
+// util.js
 // 引入 unit 模块
 // const util = require('util');
 
@@ -94,7 +94,7 @@ JavaScript 的面向对象特性是基于原型的，与常见的基于类的不
 通过上面代码可以发现，SuperBase 继承到了 Base 原型上的 sayHello 方法，印证了文章开头说的“util.inherits 是一个实现对象间原型继承的函数”。
 
 
-#### 2、util.inspect
+### 二、util.inspect
 
 util.inspect(object,[showHidden],[depth],[colors])是一个将任意对象转换 为字符串的方法，通常用于调试和错误输出，它至少接受一个参数 object，即要转换的对象。
 
@@ -107,7 +107,7 @@ depth 表示最大递归的层数，如果对象很复杂，你可以指定层�
 
  */
 
-// 12_util.js
+// util.js
 // const util = require('util');
 // function Person() {
 //     this.name = 'Liu';
@@ -120,6 +120,7 @@ depth 表示最大递归的层数，如果对象很复杂，你可以指定层�
 // console.log(util.inspect(obj)); // Person { name: 'Liu', toString: [Function] }
 // console.log(util.inspect(obj, true));
 /*
+执行结果：
 Person {
   name: 'Liu',
   toString:
@@ -134,14 +135,14 @@ Person {
 
 /*
 
-#### 3、util.isArray(object)
+### 三、util.isArray(object)
 
 如果给定的参数 "object" 是一个数组返回true，否则返回false。
 
 
  */
 
-// 12_util.js
+// util.js
 // const util = require('util');
 // console.log(util.isArray([])); // true
 // console.log(util.isArray(new Array)); // false
@@ -150,13 +151,13 @@ Person {
 
 /*
 
-#### 4、util.isRegExp(object)
+### 四、util.isRegExp(object)
 
 如果给定的参数 "object" 是一个正则表达式返回true，否则返回false。
 
  */
 
-// 12_util.js
+// util.js
 // const util = require('util');
 // console.log(util.isRegExp(/some regexp/)); // true
 // console.log(util.isRegExp(new RegExp('some regexp'))); // true
@@ -164,13 +165,13 @@ Person {
 
 /*
 
-#### 5、util.isDate(object)
+### 五、util.isDate(object)
 
 如果给定的参数 "object" 是一个日期返回true，否则返回false。
 
  */
 
-// 12_util.js
+// util.js
 // const util = require('util');
 // console.log(util.isDate(new Date())); // true
 // console.log(util.isDate(Date())); // false
@@ -179,14 +180,14 @@ Person {
 
 /*
 
-#### 6、util.isError(object)
+### 六、util.isError(object)
 
 如果给定的参数 "object" 是一个错误对象返回true，否则返回false。
 
  */
 
-// 12_util.js
-const util = require('util');
-console.log(util.isError(new Error())); // true
-console.log(util.isError(new TypeError())); // true
-console.log(util.isError({name: 'error',message: 'error'})); // false
+// util.js
+// const util = require('util');
+// console.log(util.isError(new Error())); // true
+// console.log(util.isError(new TypeError())); // true
+// console.log(util.isError({name: 'error',message: 'error'})); // false
