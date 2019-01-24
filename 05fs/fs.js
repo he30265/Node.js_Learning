@@ -1,6 +1,6 @@
 // #### 1、fs.stat：检测是文件还是目录
 // const fs = require("fs");
-// fs.stat('05_fs.js', (error, stats) => {
+// fs.stat('fs.js', (error, stats) => {
 //     if (error) {
 //         console.log(error);
 //         return false;
@@ -15,7 +15,7 @@
 
 /*
 
-执行 node 05_fs.js。
+执行 node fs.js。
 
 console.log(stats)：
 { dev: 636204,
@@ -65,7 +65,7 @@ console.log(`目录：${stats.isDirectory()}`); // 目录：false
 - mode：目录权限（读写权限）。
 - callback：回调，传递异常参数 err。
 
-执行 node 05_fs.js。
+执行 node fs.js。
 
 会发现目录下多了一个 images 文件夹。
 
@@ -92,7 +92,7 @@ console.log(`目录：${stats.isDirectory()}`); // 目录：false
 - mode：目录权限（读写权限）。
 - callback：回调，传递异常参数 err。
 
-执行 node 05_fs.js。
+执行 node fs.js。
 
 会发现目录下 images 文件夹被删除。
 
@@ -121,7 +121,7 @@ console.log(`目录：${stats.isDirectory()}`); // 目录：false
 - flag (String) 默认值 'w'。
 - callback { Function } 回调，传递一个异常参数 err。
 
-执行 node 05_fs.js。
+执行 node fs.js。
 
 会发现目录下多了一个 index.js 文件夹，并且添加了“hello NodeJS！”的内容。
 
@@ -144,7 +144,7 @@ console.log(`目录：${stats.isDirectory()}`); // 目录：false
 
 /*
 
-执行 node 05_fs.js。
+执行 node fs.js。
 
 会发现目录下 index.js 文件被删除。
 
@@ -164,7 +164,7 @@ console.log(`目录：${stats.isDirectory()}`); // 目录：false
 
 /*
 
-执行 node 05_fs.js。
+执行 node fs.js。
 
 会发现目录下 index.js 文件后有追加了一段话“追加的内容”。
 
@@ -185,7 +185,7 @@ console.log(`目录：${stats.isDirectory()}`); // 目录：false
 
 /*
 
-执行 node 05_fs.js。
+执行 node fs.js。
 
 console.log(data) 打印结果：
 <Buffer 68 65 6c 6c 6f 20 4e 6f 64 65 4a 53 ef bc 81 e8 bf bd e5 8a a0 e7 9a 84 e5 86 85 e5 ae b9>
@@ -207,7 +207,7 @@ console.log(data) 打印结果：
 
 /*
 
-执行 node 05_fs.js。
+执行 node fs.js。
 
 console.log(data) 打印结果：
 [ '03_tool_multiply.js', 'my_module' ]
@@ -228,7 +228,7 @@ console.log(data) 打印结果：
 
 /*
 
-执行 node 05_fs.js。
+执行 node fs.js。
 
 会发现目录下 index.js 文件被修改为 new_index.js。
 
@@ -248,7 +248,7 @@ console.log(data) 打印结果：
 
 /*
 
-执行 node 05_fs.js。
+执行 node fs.js。
 
 会发现目录下 new_index.js 文件被移动到了 node_modules 目录下。
 

@@ -1,7 +1,7 @@
-// ### 六、fs 流
+// ### 三、fs 流
 
 // #### 1、fs 流及其读取
-// 首先创建一个 index.js 文件，并添加测试文本。
+// // 首先创建一个 index.js 文件，并添加测试文本。
 // const fs = require("fs");
 // // 流的方式读取文件
 // const fileReadStream = fs.createReadStream("index.js");
@@ -31,7 +31,7 @@
 
 打印结果：
 ```
-1 接收到：40
+1 接收到：18
 结束
 1
 fs 流及其读取
@@ -43,17 +43,17 @@ fs 流及其读取
 
 // #### 2、流的写入
 
-// const fs = require("fs");
-// let data = "存入数据...";
-// // 创建一个可以写入的流，写入到 index.js
-// let fileWriteStream = fs.createWriteStream("index.js");
-// // 开始写入
-// fileWriteStream.write(data, "utf8");
-// // 写入完成
-// fileWriteStream.end();
-// fileWriteStream.on("finish", () => {
-//     console.log("写入完成！");
-// });
+const fs = require("fs");
+let data = "存入数据...";
+// 创建一个可以写入的流，写入到 index.js
+let fileWriteStream = fs.createWriteStream("index.js");
+// 开始写入
+fileWriteStream.write(data, "utf8");
+// 写入完成
+fileWriteStream.end();
+fileWriteStream.on("finish", () => {
+    console.log("写入完成！");
+});
 
 
 /*

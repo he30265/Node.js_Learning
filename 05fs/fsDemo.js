@@ -32,7 +32,7 @@ console.log(stats.isDirectory()); // true
 
 // #### 2、读取目录全部文件
 const fs = require("fs");
-fs.readdir("node_modules/", (err, files) => {
+fs.readdir("../05fs/", (err, files) => {
     if (err) {
         console.log(err);
         return false;
@@ -50,7 +50,7 @@ fs.readdir("node_modules/", (err, files) => {
             };
 
             // 判断目录是文件还是文件夹
-            fs.stat("node_modules/" + files[i], (err, stats) => {
+            fs.stat("../05fs/" + files[i], (err, stats) => {
                 if (stats.isDirectory()) {
                     filesArr.push(files[i]);
                 };
@@ -67,9 +67,9 @@ fs.readdir("node_modules/", (err, files) => {
 
 打印结果：
 ```
-[ '03_tool_multiply.js', 'my_module', 'test' ]
+[ '05_fs.js', '06_fsDemo.js', '07_fsStream.js', 'upload' ]
 目录
-[ 'my_module' ]
+[ 'upload' ]
 ```
 
  */
