@@ -1,3 +1,5 @@
+// #### 2、删
+
 // delete.js
 const mysql = require('mysql');
 let connection = mysql.createConnection({
