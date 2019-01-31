@@ -3,3 +3,4 @@ module.exports = {
     db: 'NodeJSBlog',
     host: 'localhost',
 };
+

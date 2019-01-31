@@ -4,9 +4,14 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var ejs = require('ejs');
 
+var settings = require('./settings');
 var index = require('./routes/index');
 var users = require('./routes/users');
+
+// 字符串加密模块
+var crypto = require('crypto');
 
 var app = express();
 
@@ -28,9 +33,38 @@ app.use(bodyParser.urlencoded({
 
 // 处理 cookie
 app.use(cookieParser());
+
+
+var session = require('express-session');
+var MongoStore = require('connect-mongo')(session);
+app.use(session({
+    secret: settings.cookieSecret,
+    store: new MongoStore({
+        db: settings.db,
+    })
+}));
+
+
+
+// 视图交互
+// 最新版本的 Express 已经不支持 flash 了，需要先通过 npm 安装 connect-flash 并引用
+var flash = require('connect-flash');
+app.use(flash());
+app.use(function(req, res, next) {
+    console.log("app.usr local");
+    res.locals.user = req.session.user;
+    res.locals.post = req.session.post;
+    var error = req.flash('error');
+    res.locals.error = error.length ? error : null;
+    var success = req.flash('success');
+    res.locals.success = success.length ? success : null;
+    next();
+});
+
 // 静态文件接口
 app.use(express.static(path.join(__dirname, 'public')));
 
+// 路由控制
 app.use('/', index);
 app.use('/users', users);
 
@@ -55,27 +89,9 @@ app.use(function(err, req, res, next) {
 
 
 
-// 会话支持
-var MongoStore = require('connect-mongo');
-var settings = require('settings');
-app.configure(function() {
-    app.set('views', __dirname + '/views');
-    app.set('view engine', 'ejs');
-    app.use(express.bodyParser());
-    app.use(express.methodOverride());
-    app.use(express.cookieParser());
-    app.use(express.session({
-        secret: settings.cookieSecret,
-        store: new MongoStore({
-            db: settings.db
-        })
-    }));
-    app.use(app.router);
-    app.use(express.static(__dirname + '/public'));
-});
 
 
-
+// ----------------------------------------------------------------------------
 
 // module.exports = app;
 
@@ -85,3 +101,4 @@ app.set('port', process.env.PORT || 3000);
 var server = app.listen(app.get('port'), function() {
     debug('Express server listening on port ' + server.address().port);
 });
+// console.log("访问：http://localhost:3000/");
