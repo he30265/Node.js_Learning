@@ -51,7 +51,6 @@ app.use(session({
 var flash = require('connect-flash');
 app.use(flash());
 app.use(function(req, res, next) {
-    console.log("app.usr local");
     res.locals.user = req.session.user;
     res.locals.post = req.session.post;
     var error = req.flash('error');
@@ -60,6 +59,8 @@ app.use(function(req, res, next) {
     res.locals.success = success.length ? success : null;
     next();
 });
+
+
 
 // 静态文件接口
 app.use(express.static(path.join(__dirname, 'public')));

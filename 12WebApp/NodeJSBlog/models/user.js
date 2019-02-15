@@ -1,6 +1,4 @@
 var mongodb = require('./db');
-var mongoose = require('mongoose')
-console.log(mongoose);
 function User(user) {
     this.name = user.name;
     this.password = user.password;
